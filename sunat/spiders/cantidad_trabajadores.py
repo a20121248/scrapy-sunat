@@ -35,7 +35,7 @@ class CantidadTrabajadoresSpider(scrapy.Spider):
             }
             yield scrapy.FormRequest(self.main_URL, formdata=data, meta={'cookiejar':row_idx+1,'ruc':str(ruc),'data':data}, callback=self.parse_sunat, dont_filter=True)
             
-    def parse_sunat(self, response):        
+    def parse_sunat(self, response):
         ruc = response.meta.get('ruc')
         con = response.meta.get('cookiejar')
         data = response.meta.get('data')
